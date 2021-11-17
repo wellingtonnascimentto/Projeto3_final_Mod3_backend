@@ -1,0 +1,19 @@
+{
+  "name": "projeto3_final_mod3_backend",
+  "version": "1.0.0",
+  "description": "Projeto final MD3 BlueEdTech",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wellingtonnascimentto/Projeto3_final_Mod3_backend.git"
+  },
+  "author": "Marcelo Franca & Wellington nascimento",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wellingtonnascimentto/Projeto3_final_Mod3_backend/issues"
+  },
+  "homepage": "https://github.com/wellingtonnascimentto/Projeto3_final_Mod3_backend#readme"
+}
