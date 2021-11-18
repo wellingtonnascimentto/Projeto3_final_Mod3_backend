@@ -1,0 +1,57 @@
+Rota séries
+
+{
+   "nome": "Round 6",
+   "temporadas": "1",
+   "imagemUrl": "https://br.web.img3.acsta.net/pictures/21/09/14/18/49/5442347.jpg",
+   "streaming": ""
+}
+{
+    "nome": "Grey's Anatomy",
+    "temporadas": "18",
+    "imagemUrl": "https://br.sonychannel.com/sites/br.set/files/greys-sony-s172.jpg",
+    "streaming": ""
+ }
+ {
+    "nome": "Vikings",
+    "temporadas": "5",
+    "imagemUrl": "https://m.media-amazon.com/images/M/MV5BODk4ZjU0NDUtYjdlOS00OTljLTgwZTUtYjkyZjk1NzExZGIzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg",
+    "streaming": ""
+ }
+
+Rota filmes,
+
+{
+   "nome": "Alerta Vermelho",
+   "diretor": "Rawson Marshall Thurber",
+   "imagemUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSxp1zGpRgnhx04mCdkDOlbu-FGTrgvK3SDNie8_ybDtKYb-sXo",
+   "duracao": "115 min",
+   "genero": "comédia, ação",
+   "atores": "Dwayne Johnson
+   Gal Gadot
+   Ryan Reynolds"
+}   
+{
+    "nome": "Velozes e Furiosos 7",
+    "diretor": "James Wan",
+    "imagemUrl": "https://upload.wikimedia.org/wikipedia/pt/b/b8/Furious_7_poster.jpg",
+    "duracao": "140 min",
+    "genero": "ação",
+    "atores": "Vin Diesel
+    Paul Walker
+    Dwayne Johnson
+    Michelle Rodríguez
+    Tyrese Gibson"
+ }   
+ {
+    "nome": "300",
+    "diretor": "Zack Snyder",
+    "imagemUrl": "https://flxt.tmsimg.com/assets/p163191_p_v10_an.jpg",
+    "duracao": "117 min",
+    "genero": "ação, fantasia, guerra",
+    "atores": "Gerard Butler
+    Lena Headey
+    David Wenham
+    Rodrigo Santoro
+    Dominic West"
+ }  
