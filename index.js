@@ -25,6 +25,9 @@ app.get('/', (req,res) => {
 const FilmesRouter = require("./routers/Filmes.routes");
 app.use("/Filmes", FilmesRouter);
 
+const musicasRouter = require("./routers/musicas.routers");
+app.use("/Musicas", musicasRouter);
+
 app.listen(process.env.PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${process.env.PORT}`);
 });

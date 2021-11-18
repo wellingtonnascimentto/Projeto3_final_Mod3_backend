@@ -2,7 +2,7 @@ const express = require ('express');
 
 const router = express.Router();
 
-const Musica = require ("./models/musicas")
+const Musica = require ("../model/musicas")
 
 router.get("/", (req, res) => {
     res.status(200).json({message: 'Músicas OK'});
