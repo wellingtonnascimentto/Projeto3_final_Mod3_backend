@@ -2,27 +2,40 @@ const express = require ('express');
 
 const router = express.Router();
 
-let listaMusicas = [];
+const Musica = require ("./models/musicas")
 
 router.get("/", (req, res) => {
     res.status(200).json({message: 'Músicas OK'});
 });
 
-router.get("/listall/musica", (req, res) => {
-    res.status(200).json({listaMusicas});
+router.get("/listall/musica", async (req, res) => {
+    await Musicas.find({}).then((Musica) => {
+        console.log(Musica);
+        res.status(200).json({Musica});
+    }).catch((err) => {
+        res.status(404).json({message:"Musica não encontrada."});
+        console.error(err);
+    });
 });
 
-router.get("/listall/musicaIndex/:id", (req, res) => {
+router.get("/listid/musica/:id", async (req, res) => {
     const id = req.params.id;
-    const index = listaMusicas[id]
-    if (index == -1){
-        res.status(204).json({message: "Música não encontrada."});
-        return;
-    }
-    res.status(200).json({index: index});   
+    await Musicas;findOne({id:id}).then((Musica) => {
+        console.log(Musica);
+        if (id == null) {
+            res.status(404).json({message: "Música não encontrada."});
+            return;
+        } else {
+        res.status(200).json({index: index});
+        };
+    }).catch((err) => {
+        res.status(404).json({message: "Música não encontrada."});
+        console.log(err);
+    });
+   
 });
 
-router.post("/add/musica", (req, res) =>     {
+router.post("/add/musica", async (req, res) => {
     const musica = req.body;
 
     if(!musica.genero){
@@ -46,8 +59,12 @@ router.post("/add/musica", (req, res) =>     {
         return;
     };
 
-    listaMusicas.push(musica);
-    res.status(201).json({message: "Música cadastrada com sucesso!"})
+    await Musicas.crate(req.body).then(() => {
+        res.status(200).json({message: "Musica cadastrada com sucesso!"});
+    }).catch ((err) => {
+        res.status(400).json({message: "Algo saiu mal ao cadastrar música."});
+        console.log(err);
+    });
 });
 
 router.put("/update/musica/:id", (req, res) => {
