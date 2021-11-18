@@ -59,7 +59,7 @@ router.post("/add/musica", async (req, res) => {
         return;
     };
 
-    await Musicas.crate(req.body).then(() => {
+    await Musicas.create(req.body).then(() => {
         res.status(200).json({message: "Musica cadastrada com sucesso!"});
     }).catch ((err) => {
         res.status(400).json({message: "Algo saiu mal ao cadastrar música."});
