@@ -25,7 +25,7 @@ app.get('/', (req,res) => {
 const FilmesRouter = require("./routers/Filmes.routes");
 app.use("/Filmes", FilmesRouter);
 
-const musicasRouter = require("./routers/musicas.routers");
+const musicasRouter = require("./routers/musicas.routes");
 app.use("/Musicas", musicasRouter);
 
 app.listen(process.env.PORT, () => {
