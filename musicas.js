@@ -67,21 +67,51 @@ router.post("/add/musica", async (req, res) => {
     });
 });
 
-router.put("/update/musica/:id", (req, res) => {
+router.put("/update/musica/:id", async (req, res) => {
     const id = req.params.id;
-    const musica = listaMusicas[id];
+    
+    if(!id){
+        res.status(400).json({message: "esta faltando id na URL"});
+        return;
+    }else if(!req.body.genero){
+        res.status(400).json({message: "esta faltando nome"});
+        return;
+    }else if(!req.body.duracao){
+        res.status(400).json({message: "esta faltando altura"});
+        return;
+    }
+    else if(!req.body.autor){
+        res.status(400).json({message: "esta faltando idade"});
+        return;
+    }
+    else if(!req.body.cantor){
+        res.status(400).json({message: "esta faltando idade"});
+        return;
+    }
+    else if(!req.body.imagem){
+        res.status(400).json({message: "esta faltando idade"});
+        return;
+    }
 
-    console.log(musica);
-
-    listaMusicas[id] = req.body;
-
-    res.status(200).json(listaMusicas[id]);
+    await Musicas.updateOne({_id:id},req.body).then(() => { 
+        res.status(200).json({message: "Musica atualizada com sucesso"});
+    }).catch((err) => {
+        console.error(err);
+        res.status(400).json({message: "algo esta errado em musicas"});
+    });
 });
 
 router.delete("/delete/musica/:id", (req, res) => {
-    const id = req.params.id;
-    listaMusica.splice(id, 1);
-    res.json(listaMusica);
+    if( req.params.id.length == 24){
+        await Pessoa.deleteOne({_id:req.params.id}).then(() => {
+            res.status(200).json({message: "Musica deletada com sucesso"});
+        }).catch((err) => {
+            console.error(err);
+            res.status(400).json({message: "algo esta errado ao deletar musica"});
+        });
+    }else{
+        res.status(400).json({message: "id precisa ter 24 caracteres"});
+    }
 });
 
 module.exports = router;            
