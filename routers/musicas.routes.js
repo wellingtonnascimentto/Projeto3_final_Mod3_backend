@@ -1,19 +1,19 @@
 const express = require("express"); //import do express
 const router = express.Router(); //define app como express
-const musicasController = require('./../controller/musicas.controller'); // importacao do controller
+const MusicasController = require('./../controller/musicas.controller'); // importacao do controller
 
 router.get('/', (req,res) => {
     res.status(200).json({message:"rota Musicas OK!"});
 });
 
-router.post("/add/musica", musicasController);
+router.post("/add", MusicasController);
 
-router.get("/listall/musica", musicasController);
+router.get("/listall", MusicasController);
 
-router.get("/listid/musica/:id", musicasController);
+router.get("/listid/:id", MusicasController);
 
-router.put("/update/musica/:id", musicasController);
+router.put("/update/:id", MusicasController);
 
-router.delete("/delete/musica/:id", musicasController);
+router.delete("/delete/:id", MusicasController);
 
 module.exports = router;
