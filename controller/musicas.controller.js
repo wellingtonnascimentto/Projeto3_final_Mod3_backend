@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     res.status(200).json({message: 'Músicas OK'});
 });
 
-router.get("/listall/musica", async (req, res) => {
+router.get("/listall/", async (req, res) => {
     await Musicas.find({}).then((Musica) => {
         console.log(Musica);
         res.status(200).json({Musica});
@@ -18,7 +18,7 @@ router.get("/listall/musica", async (req, res) => {
     });
 });
 
-router.get("/listid/musica/:id", async (req, res) => {
+router.get("/listid/:id", async (req, res) => {
     const id = req.params.id;
     await Musicas.findOne({id:id}).then((Musica) => {
         console.log(Musica);
@@ -35,7 +35,7 @@ router.get("/listid/musica/:id", async (req, res) => {
    
 });
 
-router.post("/add/musica", async (req, res) => {
+router.post("/add/", async (req, res) => {
     const musica = req.body;
 
     if(!musica.genero){
@@ -67,7 +67,7 @@ router.post("/add/musica", async (req, res) => {
     });
 });
 
-router.put("/update/musica/:id", async (req, res) => {
+router.put("/update/:id", async (req, res) => {
     const id = req.params.id;
     
     if(!id){
@@ -101,7 +101,7 @@ router.put("/update/musica/:id", async (req, res) => {
     });
 });
 
-router.delete("/delete/musica/:id", async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
     if( req.params.id.length == 24){
         await Musicas.deleteOne({_id:req.params.id}).then(() => {
             res.status(200).json({message: "Musica deletada com sucesso"});
