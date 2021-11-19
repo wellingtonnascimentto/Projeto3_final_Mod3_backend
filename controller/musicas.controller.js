@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     res.status(200).json({message: 'Músicas OK'});
 });
 
-router.get("/listall", async (req, res) => {
+router.get("/listall/", async (req, res) => {
     await Musicas.find({}).then((Musica) => {
         console.log(Musica);
         res.status(200).json({Musica});
@@ -35,7 +35,7 @@ router.get("/listid/:id", async (req, res) => {
    
 });
 
-router.post("/add", async (req, res) => {
+router.post("/add/", async (req, res) => {
     const musica = req.body;
 
     if(!musica.genero){

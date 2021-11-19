@@ -1,13 +1,14 @@
-const mongoose = require("mongoose");  //importando o mongoose
+const mongoose = require("mongoose");
 
-const seriesModel = new mongoose.Schema({
-    nome: { type: String, required: true},
-    temporadas: { type: String, required: true},
-    imagemUrl: { type: String, required: true},
-    trailer: { type: String, required: true},
+const seriesModel = new mongoose.Schema({ 
+    nome: { type: String, required: true },
+    qntTemp: { type: Number, required: true },
+    genero: { type: String, required: true },
+    qntEp: { type: Number, required: true },
     dataCriacao: { type: Date, default: Date.now }
 });
 
-const Series = mongoose.model("Series",seriesModel);
+const Serie = mongoose.model("Series", seriesModel);
 
-module.exports = Series;
+module.exports = Serie;
+
