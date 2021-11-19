@@ -25,6 +25,9 @@ app.get('/', (req,res) => {
 const FilmesRouter = require("./routers/filmes.routes");
 app.use("/filmes", FilmesRouter);
 
+const SeriesRouter = require("./routers/series.routes");
+app.use("/series", SeriesRouter);
+
 const MusicasRouter = require("./routers/musicas.routes");
 app.use("/musicas", MusicasRouter);
 

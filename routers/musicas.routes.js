@@ -3,7 +3,7 @@ const router = express.Router(); //define app como express
 const MusicasController = require('./../controller/musicas.controller'); // importacao do controller
 
 router.get('/', (req,res) => {
-    res.status(200).json({message:"rota Musicas OK!"});
+    res.status(200).json({message:"Rota Musicas OK!"});
 });
 
 router.post("/add", MusicasController);
