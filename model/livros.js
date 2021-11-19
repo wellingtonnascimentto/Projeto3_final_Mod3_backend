@@ -8,6 +8,6 @@ const livrosModel = new mongoose.Schema({
     dataCriacao: { type: Date, default: Date.now }
 });
 
-const Livro = mongoose.model("Series", livrosModel);
+const Livro = mongoose.model("Livros", livrosModel);
 
 module.exports = Livro;

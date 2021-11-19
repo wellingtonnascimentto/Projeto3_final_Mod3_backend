@@ -31,6 +31,15 @@ app.use("/series", SeriesRouter);
 const MusicasRouter = require("./routers/musicas.routes");
 app.use("/musicas", MusicasRouter);
 
+const seriesRouter = require("./routers/series.routes");
+app.use("/Series", seriesRouter);
+
+const livrosRouter = require("./routers/livros.routes");
+app.use("/Livros", livrosRouter);
+
+const animesRouter = require("./routers/animes.routes");
+app.use("/Animes", animesRouter);
+
 app.listen(process.env.PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${process.env.PORT}`);
 });

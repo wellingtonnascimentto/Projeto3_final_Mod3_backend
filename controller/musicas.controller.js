@@ -1,7 +1,5 @@
 const express = require ('express');
-
 const router = express.Router();
-
 const Musicas = require ("../model/musicas")
 
 router.get("/", (req, res) => {
@@ -20,7 +18,7 @@ router.get("/listall/", async (req, res) => {
 
 router.get("/listid/:id", async (req, res) => {
     const id = req.params.id;
-    await Musicas.findOne({id:id}).then((Musica) => {
+    await Musicas.findOne({_id:id}).then((Musica) => {
         console.log(Musica);
         if (id == null) {
             res.status(404).json({message: "Música não encontrada."});
