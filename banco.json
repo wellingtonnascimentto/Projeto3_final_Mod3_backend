@@ -1,26 +1,26 @@
-Rota séries
+
 
 {
    "nome": "Round 6",
    "temporadas": 1,
-   "genero":"ação, suspense",
-   "qntEp":
-
+   "genero":"Drama",
+   "qntEp": 9
 }
+
 {
     "nome": "Grey's Anatomy",
     "temporadas": 18,
-    "genero": "",
-    "qntEp": ""
- }
- {
+    "genero": "Drama",
+    "qntEp": 385
+}
+{
     "nome": "Vikings",
     "temporadas": "5",
-    "genero": "",
-    "qntEp": 
- }
+    "genero": "Drama",
+    "qntEp": 79
+}
 
-Rota filmes,
+
 
 {
    "nome": "Alerta Vermelho",
@@ -31,7 +31,7 @@ Rota filmes,
    "atores": "Dwayne Johnson
    Gal Gadot
    Ryan Reynolds"
-}   
+},   
 {
     "nome": "Velozes e Furiosos 7",
     "diretor": "James Wan",
@@ -43,7 +43,7 @@ Rota filmes,
     Dwayne Johnson
     Michelle Rodríguez
     Tyrese Gibson"
- }   
+ },   
  {
     "nome": "300",
     "diretor": "Zack Snyder",
