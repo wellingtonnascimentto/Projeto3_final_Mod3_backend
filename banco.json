@@ -2,21 +2,22 @@ Rota séries
 
 {
    "nome": "Round 6",
-   "temporadas": "1",
-   "imagemUrl": "https://br.web.img3.acsta.net/pictures/21/09/14/18/49/5442347.jpg",
-   "streaming": ""
+   "temporadas": 1,
+   "genero":"ação, suspense",
+   "qntEp":
+
 }
 {
     "nome": "Grey's Anatomy",
-    "temporadas": "18",
-    "imagemUrl": "https://br.sonychannel.com/sites/br.set/files/greys-sony-s172.jpg",
-    "streaming": ""
+    "temporadas": 18,
+    "genero": "",
+    "qntEp": ""
  }
  {
     "nome": "Vikings",
     "temporadas": "5",
-    "imagemUrl": "https://m.media-amazon.com/images/M/MV5BODk4ZjU0NDUtYjdlOS00OTljLTgwZTUtYjkyZjk1NzExZGIzXkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_FMjpg_UX1000_.jpg",
-    "streaming": ""
+    "genero": "",
+    "qntEp": 
  }
 
 Rota filmes,

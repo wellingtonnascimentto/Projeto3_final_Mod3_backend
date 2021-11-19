@@ -22,11 +22,14 @@ app.get('/', (req,res) => {
     res.status(200).json({message:"Bem-Vindo a API HOBBYs. Escolha qual rota deseja acessar (animes, filmes, livros, musicas ou series)!"});
 });
 
-const FilmesRouter = require("./routers/Filmes.routes");
-app.use("/Filmes", FilmesRouter);
+const FilmesRouter = require("./routers/filmes.routes");
+app.use("/filmes", FilmesRouter);
 
-const musicasRouter = require("./routers/musicas.routes");
-app.use("/Musicas", musicasRouter);
+const SeriesRouter = require("./routers/series.routes");
+app.use("/series", SeriesRouter);
+
+const MusicasRouter = require("./routers/musicas.routes");
+app.use("/musicas", MusicasRouter);
 
 const seriesRouter = require("./routers/series.routes");
 app.use("/Series", seriesRouter);

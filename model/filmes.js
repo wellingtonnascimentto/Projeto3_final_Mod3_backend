@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");  //importando o mongoose
 
-const FilmesModel = new mongoose.Schema({
+const filmesModel = new mongoose.Schema({
     nome: { type: String, required: true},
     diretor: { type: String, required: true},
     duracao: { type: String, required: true},
@@ -10,6 +10,6 @@ const FilmesModel = new mongoose.Schema({
     dataCriacao: { type: Date, default: Date.now }
 });
 
-const Filmes = mongoose.model("Filmes",FilmesModel);
+const Filmes = mongoose.model("Filmes",filmesModel);
 
 module.exports = Filmes;

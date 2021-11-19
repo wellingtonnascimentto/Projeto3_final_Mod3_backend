@@ -3,7 +3,7 @@ const router = express.Router();
 const FilmesController = require('./../controller/Filmes.controller');
 
 router.get('/', (req,res) => {
-    res.status(200).json({message:"rota Filmes OK!"});
+    res.status(200).json({message:"Rota Filmes OK!"});
 });
 
 router.post("/add", FilmesController);

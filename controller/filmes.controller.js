@@ -1,9 +1,9 @@
 const express = require("express")
 const router = express.Router()
-const Filmes = require('./../model/Filmes')
+const Filmes = require('./../model/filmes')
 
 router.get('/', (req, res) => {
-    res.status(200).json({message: 'Filmes OK'});
+    res.status(200).json({message: 'Rota Filmes OK'});
 });
 
 router.get('/listall', async (req, res) => {
@@ -102,13 +102,17 @@ router.put('/update/:id', async (req, res) => {
     });
 });
 
-router.delete('/delete/:id', async (req, res) => { 
-    await Filmes.deleteOne({ _id: req.params.id }, req.body).then( () => {
-        res.status(200).json({message: "Deletado com sucesso"});
-    }).catch((err) => {
-        res.status(400).json({message: "Algo esta errado"});
-        console.error(err);
-    });
+router.delete("/delete/:id", async (req, res) => {
+    if( req.params.id.length == 24){
+        await Filmes.deleteOne({_id:req.params.id}).then(() => {
+            res.status(200).json({message: "Filme deletado com sucesso"});
+        }).catch((err) => {
+            console.error(err);
+            res.status(400).json({message: "algo deu errado ao deletar o filme"});
+        });
+    } else{
+        res.status(400).json({message: "id precisa ter 24 caracteres"});
+    }
 });
 
 module.exports = router;
