@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
     res.status(200).json({message: 'Músicas OK'});
 });
 
-router.get("/listall/musica", async (req, res) => {
+router.get("/listall", async (req, res) => {
     await Musicas.find({}).then((Musica) => {
         console.log(Musica);
         res.status(200).json({Musica});
@@ -18,9 +18,9 @@ router.get("/listall/musica", async (req, res) => {
     });
 });
 
-router.get("/listid/musica/:id", async (req, res) => {
+router.get("/listid/:id", async (req, res) => {
     const id = req.params.id;
-    await Musicas;findOne({id:id}).then((Musica) => {
+    await Musicas;findOne({_id:req.params.id}).then((Musica) => {
         console.log(Musica);
         if (id == null) {
             res.status(404).json({message: "Música não encontrada."});
@@ -30,12 +30,12 @@ router.get("/listid/musica/:id", async (req, res) => {
         };
     }).catch((err) => {
         res.status(404).json({message: "Música não encontrada."});
-        console.log(err);
+        console.error(err);
     });
    
 });
 
-router.post("/add/musica", async (req, res) => {
+router.post("/add", async (req, res) => {
     const musica = req.body;
 
     if(!musica.genero){
@@ -63,11 +63,11 @@ router.post("/add/musica", async (req, res) => {
         res.status(200).json({message: "Musica cadastrada com sucesso!"});
     }).catch ((err) => {
         res.status(400).json({message: "Algo saiu mal ao cadastrar música."});
-        console.log(err);
+        console.error(err);
     });
 });
 
-router.put("/update/musica/:id", async (req, res) => {
+router.put("/update/:id", async (req, res) => {
     const id = req.params.id;
     
     if(!id){
@@ -101,7 +101,7 @@ router.put("/update/musica/:id", async (req, res) => {
     });
 });
 
-router.delete("/delete/musica/:id", (req, res) => {
+router.delete("/delete/:id", (req, res) => {
     if( req.params.id.length == 24){
         await Pessoa.deleteOne({_id:req.params.id}).then(() => {
             res.status(200).json({message: "Musica deletada com sucesso"});
