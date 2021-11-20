@@ -23,13 +23,13 @@ app.get('/', (req,res) => {
 });
 
 const FilmesRouter = require("./routers/filmes.routes");
-app.use("/filmes", FilmesRouter);
+app.use("/Filmes", FilmesRouter);
 
 const SeriesRouter = require("./routers/series.routes");
-app.use("/series", SeriesRouter);
+app.use("/Series", SeriesRouter);
 
 const MusicasRouter = require("./routers/musicas.routes");
-app.use("/musicas", MusicasRouter);
+app.use("/Musicas", MusicasRouter);
 
 const seriesRouter = require("./routers/series.routes");
 app.use("/Series", seriesRouter);
