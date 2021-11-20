@@ -18,7 +18,7 @@ router.get("/listall/", async (req, res) => {
     });
 });
 
-router.get("/listname/:id", async (req, res) => {
+router.get("/listid/:id", async (req, res) => {
     await Livros.findOne({_id:req.params.id}).then((Livro) =>{
         if (Livro == null) {
             res.status(204).json({message: "Livro não encontrado."});

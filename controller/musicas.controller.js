@@ -18,13 +18,14 @@ router.get("/listall/", async (req, res) => {
 
 router.get("/listid/:id", async (req, res) => {
     const id = req.params.id;
-    await Musicas.findOne({_id:id}).then((Musica) => {
-        console.log(Musica);
+    await Musicas.findOne({_id:id}).then((musicas) => {
+        console.log(musicas);
         if (id == null) {
             res.status(404).json({message: "Música não encontrada."});
             return;
+
         } else {
-        res.status(200).json({index: index});
+        res.status(200).json(musicas);
         };
     }).catch((err) => {
         res.status(404).json({message: "Música não encontrada."});

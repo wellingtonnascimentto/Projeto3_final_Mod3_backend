@@ -4,7 +4,7 @@ const animesModel = new mongoose.Schema({
     titulo: { type: String, required: true },
     temporadas: { type: Number, required: true },
     genero: { type: String, required: true },
-    episodios: { type: Number, required: true },
+    qntEp: { type: Number, required: true },
     dataCriacao: { type: Date, default: Date.now }
 });
 

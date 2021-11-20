@@ -18,7 +18,7 @@ router.get("/listall/", async (req, res) => {
     });
 });
 
-router.get("/listname/:id", async (req, res) => {
+router.get("/listid/:id", async (req, res) => {
     await Animes.findOne({_id:req.params.id}).then((Anime) =>{
         if (Anime == null) {
             res.status(204).json({message: "Anime não encontrado."});
@@ -43,10 +43,10 @@ router.post("/add", async (req, res) => {
         return;
     };
     if(!req.body.genero){
-        res.status(404).json({message: "genero Mae da requisição Anime está vazia."});
+        res.status(404).json({message: "genero da requisição Anime está vazia."});
         return;
     };
-    if(!req.body.episodios){
+    if(!req.body.qntEp){
         res.status(404).json({message: "Quantidade de episódios da requisição Anime está vazia."});
         return;
     };
@@ -73,8 +73,8 @@ router.put("/update/:id", async (req, res) => {
     }else if (!req.body.genero){
         res.status(404).json({message: "O genero não foi informado."})
         return;
-    }else if (!req.body.episodios){
-        res.status(404).json({message: "A quantidade de capitulos não foi informado."})
+    }else if (!req.body.qntEp){
+        res.status(404).json({message: "A quantidade de Episódios não foi informado."})
         return;
     }
 
@@ -84,7 +84,7 @@ router.put("/update/:id", async (req, res) => {
         console.error(err);
         res.status(400).json({message: "Algo deu errado ao atualizar o Anime."})
     })
-    console.log(Anime);
+   
 
 });
 

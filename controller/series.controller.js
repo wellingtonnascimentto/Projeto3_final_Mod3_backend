@@ -38,15 +38,15 @@ router.post('/add', async (req,res) => {
         return;
 
     } else if (!req.body.temporadas) {
-        res.status(400).json({message: "Diretor não informado."});
+        res.status(400).json({message: "Temporadas não informada."});
         return;
 
-    } else if (!req.body.imagemUrl) {
-        res.status(400).json({message: "Duração não informado."});
+    } else if (!req.body.genero) {
+        res.status(400).json({message: "Genero não informado."});
         return;
         
-    } else if (!req.body.trailer) {
-        res.status(400).json({message: "Genero não informado."});
+    } else if (!req.body.qntEp) {
+        res.status(400).json({message: "Quantidade de episodios não informado."});
         return;    
     };
 
@@ -65,15 +65,15 @@ router.put('/update/:id', async (req, res) => {
         return;
 
     } else if (!req.body.temporadas) {
-        res.status(400).json({message: "Diretor não informado."});
+        res.status(400).json({message: "Temporadas não informada."});
         return;
 
-    } else if (!req.body.imagemUrl) {
-        res.status(400).json({message: "Duração não informado."});
+    } else if (!req.body.genero) {
+        res.status(400).json({message: "Genero não informado."});
         return;
         
-    } else if (!req.body.trailer) {
-        res.status(400).json({message: "Genero não informado."});
+    } else if (!req.body.qntEp) {
+        res.status(400).json({message: "Quantidade de episodios não informado."});
         return;    
     };
     
@@ -89,10 +89,10 @@ router.put('/update/:id', async (req, res) => {
 router.delete("/delete/:id", async (req, res) => {
     if( req.params.id.length == 24){
         await Series.deleteOne({_id:req.params.id}).then(() => {
-            res.status(200).json({message: "Filme deletado com sucesso"});
+            res.status(200).json({message: "Serie deletada com sucesso"});
         }).catch((err) => {
             console.error(err);
-            res.status(400).json({message: "algo deu errado ao deletar o filme"});
+            res.status(400).json({message: "algo deu errado ao deletar a Serie"});
         });
     } else{
         res.status(400).json({message: "id precisa ter 24 caracteres"});
