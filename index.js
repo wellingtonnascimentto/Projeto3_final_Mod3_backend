@@ -6,17 +6,16 @@
 //npm i dotenv         instala a lib para tratativa de var de ambiente
 
 const express = require("express");  //chamando o express
-const app = express();  //definindo o app como express
-require('dotenv').config(); // config do .env para acessar as VARs de ambiente
-const cors = require("cors");  // importando o CORS para nosso APP
-app.use(express.json());  //definindo o JSON no projeto
+const app = express();  
+require('dotenv').config(); 
+const cors = require("cors");  
+app.use(express.json()); 
 
-const Conn = require("./model/conn/index"); //importando a conexao
+const Conn = require("./model/conn/index"); 
 
-Conn(); //executa a func de conexao
-
-app.use(cors()); // usando o CORS no APP
-app.options("*", cors()); // Configurando o CORS para liberar todo trafego.
+Conn(); 
+app.use(cors()); 
+app.options("*", cors()); 
 
 app.get('/', (req,res) => {
     res.status(200).json({message:"Bem-Vindo a API HOBBYs. Escolha qual rota deseja acessar (animes, filmes, livros, musicas ou series)!"});
