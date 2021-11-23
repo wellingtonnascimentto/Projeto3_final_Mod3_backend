@@ -12,6 +12,9 @@ exports.getListall = async (req, res) => {
 
 exports.getListid = async (req, res) => {
     await Filmes.findById(req.params.id).then((filmes) => {
+        if(req.params.id == null){
+            res.status(404).json({message: "a URL está sem ID"})
+        }
         if(filmes == null) {
             res.status(404).json({message: "Não foi encontrado"});
             return;
