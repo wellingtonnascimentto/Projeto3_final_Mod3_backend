@@ -1,14 +1,7 @@
-const express = require ('express');
 const Livro = require('../model/livros');
 const Livros = require("../model/livros");
-const router = express.Router();
 
-
-router.get("/", (req, res) => {
-    res.status(200).json({message: 'Livros OK'});
-});
-
-router.get("/listall/", async (req, res) => {
+exports.getListall = async (req, res) => {
     await Livros.find({}).then((Livro) => {
         console.log(Livro);
         res.status(200).json(Livro);
@@ -16,9 +9,9 @@ router.get("/listall/", async (req, res) => {
         res.status(404).json({message:"Nenhum livro foi encontrado"});
         console.error(err);
     });
-});
+};
 
-router.get("/listid/:id", async (req, res) => {
+exports.getListid = async (req, res) => {
     await Livros.findOne({_id:req.params.id}).then((Livro) =>{
         if (Livro == null) {
             res.status(204).json({message: "Livro não encontrado."});
@@ -30,9 +23,9 @@ router.get("/listid/:id", async (req, res) => {
     });
     
    
-});
+};
 
-router.post("/add", async (req, res) => {
+exports.postAdd = async (req, res) => {
 
     if(!req.body.titulo){
         res.status(404).json({message:"titulo da requisição Livro está vazia"});
@@ -57,9 +50,9 @@ router.post("/add", async (req, res) => {
         res.status(400).json({message: "Erro ao criar Livro"});
         console.error(err);
     });
-});
+};
 
-router.put("/update/:id", async (req, res) => {
+exports.putUpdate = async (req, res) => {
 
     if (req.params.id == null){
         res.status(404).json({message: "id está vazio."})
@@ -86,9 +79,9 @@ router.put("/update/:id", async (req, res) => {
     })
     console.log(Livro);
 
-});
+};
 
-router.delete("/delete/:id", async (req, res) => {
+exports.delDelete = async (req, res) => {
     if( req.params.id.length == 24){
         await Livros.deleteOne({_id:req.params.id}).then(() => {
             res.status(200).json({message: "Livro deletado com sucesso."});
@@ -99,6 +92,4 @@ router.delete("/delete/:id", async (req, res) => {
     }else{
         res.status(404).json({message: "id precisa ter 24 caracteres"});
     }
-});
-
-module.exports = router;            
+};            

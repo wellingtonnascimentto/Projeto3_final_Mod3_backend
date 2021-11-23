@@ -6,14 +6,15 @@ router.get('/', (req,res) => {
     res.status(200).json({message:"Rota Series OK!"});
 });
 
-router.post("/add", SeriesController);
+router.post("/add", SeriesController.postAdd);
 
-router.get("/listall", SeriesController);
+router.get("/listall", SeriesController.getListall);
 
-router.get("/listid/:id", SeriesController);
+router.get("/listid/:id", SeriesController.getListid);
 
-router.put("/update/:id", SeriesController);
+router.put("/update/:id", SeriesController.putUpdate);
 
-router.delete("/delete/:id", SeriesController);
+router.delete("/delete/:id", SeriesController.delDelete);
 
 module.exports = router;
+

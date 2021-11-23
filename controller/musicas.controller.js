@@ -1,12 +1,6 @@
-const express = require ('express');
-const router = express.Router();
-const Musicas = require ("../model/musicas")
+const Musicas = require ("../model/musicas");
 
-router.get("/", (req, res) => {
-    res.status(200).json({message: 'Músicas OK'});
-});
-
-router.get("/listall/", async (req, res) => {
+exports.getListall = async (req, res) => {
     await Musicas.find({}).then((Musica) => {
         console.log(Musica);
         res.status(200).json({Musica});
@@ -14,9 +8,9 @@ router.get("/listall/", async (req, res) => {
         res.status(404).json({message:"Musica não encontrada."});
         console.error(err);
     });
-});
+};
 
-router.get("/listid/:id", async (req, res) => {
+exports.getListid = async (req, res) => {
     const id = req.params.id;
     await Musicas.findOne({_id:id}).then((musicas) => {
         console.log(musicas);
@@ -32,9 +26,9 @@ router.get("/listid/:id", async (req, res) => {
         console.log(err);
     });
    
-});
+};
 
-router.post("/add/", async (req, res) => {
+exports.postAdd = async (req, res) => {
     const musica = req.body;
 
     if(!musica.genero){
@@ -64,9 +58,9 @@ router.post("/add/", async (req, res) => {
         res.status(400).json({message: "Algo saiu mal ao cadastrar música."});
         console.log(err);
     });
-});
+};
 
-router.put("/update/:id", async (req, res) => {
+exports.putUpdate = async (req, res) => {
     const id = req.params.id;
     
     if(!id){
@@ -98,9 +92,9 @@ router.put("/update/:id", async (req, res) => {
         console.error(err);
         res.status(400).json({message: "algo esta errado em musicas"});
     });
-});
+};
 
-router.delete("/delete/:id", async (req, res) => {
+exports.delDelete = async (req, res) => {
     if( req.params.id.length == 24){
         await Musicas.deleteOne({_id:req.params.id}).then(() => {
             res.status(200).json({message: "Musica deletada com sucesso"});
@@ -111,6 +105,4 @@ router.delete("/delete/:id", async (req, res) => {
     } else{
         res.status(400).json({message: "id precisa ter 24 caracteres"});
     }
-});
-
-module.exports = router;            
+};

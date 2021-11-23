@@ -6,14 +6,14 @@ router.get('/', (req,res) => {
     res.status(200).json({message:"rota animes OK!"});
 });
 
-router.post("/add", animesController);
+router.post("/add", animesController.postAdd);
 
-router.get("/listall", animesController);
+router.get("/listall", animesController.getListall);
 
-router.get("/listid/:id", animesController);
+router.get("/listid/:id", animesController.getListid);
 
-router.put("/update/:id", animesController);
+router.put("/update/:id", animesController.putUpdate);
 
-router.delete("/delete/:id", animesController);
+router.delete("/delete/:id", animesController.delDelete);
 
 module.exports = router;

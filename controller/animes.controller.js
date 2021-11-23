@@ -1,14 +1,7 @@
-const express = require ('express');
 const Anime = require('../model/animes');
 const Animes = require("../model/animes");
-const router = express.Router();
 
-
-router.get("/", (req, res) => {
-    res.status(200).json({message: 'Animes OK'});
-});
-
-router.get("/listall/", async (req, res) => {
+exports.getListall = async (req, res) => {
     await Animes.find({}).then((Anime) => {
         console.log(Anime);
         res.status(200).json(Anime);
@@ -16,9 +9,9 @@ router.get("/listall/", async (req, res) => {
         res.status(404).json({message:"Nenhum Anime foi encontrado"});
         console.error(err);
     });
-});
+};
 
-router.get("/listid/:id", async (req, res) => {
+exports.getListid = async (req, res) => {
     await Animes.findOne({_id:req.params.id}).then((Anime) =>{
         if (Anime == null) {
             res.status(204).json({message: "Anime não encontrado."});
@@ -28,11 +21,9 @@ router.get("/listid/:id", async (req, res) => {
     }).catch((err) => {
         console.error(err);
     });
-    
-   
-});
+};
 
-router.post("/add", async (req, res) => {
+exports.postAdd = async (req, res) => {
 
     if(!req.body.titulo){
         res.status(404).json({message:"titulo da requisição Anime está vazia"});
@@ -57,9 +48,9 @@ router.post("/add", async (req, res) => {
         res.status(400).json({message: "Erro ao criar Anime"});
         console.error(err);
     });
-});
+};
 
-router.put("/update/:id", async (req, res) => {
+exports.putUpdate = async (req, res) => {
 
     if (req.params.id == null){
         res.status(404).json({message: "id está vazio."})
@@ -86,9 +77,9 @@ router.put("/update/:id", async (req, res) => {
     })
    
 
-});
+};
 
-router.delete("/delete/:id", async (req, res) => {
+exports.delDelete = async (req, res) => {
     if( req.params.id.length == 24){
         await Animes.deleteOne({_id:req.params.id}).then(() => {
             res.status(200).json({message: "Anime deletado com sucesso."});
@@ -99,6 +90,4 @@ router.delete("/delete/:id", async (req, res) => {
     }else{
         res.status(404).json({message: "id precisa ter 24 caracteres"});
     }
-});
-
-module.exports = router;            
+};            
