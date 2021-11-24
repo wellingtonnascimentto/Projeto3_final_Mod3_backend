@@ -20,8 +20,14 @@ O projeto foi desenvolvido como parte da formação inicial  de BackEnd da insti
 # Tecnologias utilizadas
 ## Back end
 - ![GitHub top language](https://img.shields.io/github/languages/top/wellingtonnascimentto/Projeto3_final_Mod3_backend?style=plastic)
+- ![NODE JS](https://img.shields.io/badge/Node.js-339933?style=plastic)
+- ![Express.JS](https://img.shields.io/badge/Express.js-000000?style=plastic)
 
-## Implantação em produção
+## Banco de dados
+- ![MONGO DB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
+
+
+# Implantação em produção
 - Back end: Heroku
 - Banco de dados: MongoDB
 
