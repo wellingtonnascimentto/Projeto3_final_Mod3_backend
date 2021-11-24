@@ -52,7 +52,7 @@ exports.postAdd = async (req,res) => {
         return;
 
     } else if (!req.body.atores) {
-        res.status(400).json({message: "AAtores não informado."});
+        res.status(400).json({message: "Atores não informado."});
         return;    
     };
 
