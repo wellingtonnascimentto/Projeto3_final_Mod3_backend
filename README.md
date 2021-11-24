@@ -2,7 +2,8 @@
 
 # Sobre o projeto
 
-https://api-hobbies.herokuapp.com/
+Link back-end: https://api-hobbies.herokuapp.com/
+Link da API integrada à um front: https://projeto3-final-mod3-frontend.herokuapp.com/
 
 A API Hobbies, permite aos usuários cadastrar filmes, séries, livros, musicas e animes e que queira armazenar e catalogar. 
 
